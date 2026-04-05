@@ -3,10 +3,8 @@ import { motion } from 'framer-motion'
 const stats = [
   { text: '4,500+ Delegates from around the world' },
   { text: '57% International participants (107 countries)' },
-  {
-    text: '2 awards: Best in Committee, UNESCO',
-    sub: 'Outstanding Delegation',
-  },
+  { text: 'Best in Committee — UNESCO' },
+  { text: 'Outstanding Delegation — NMUN-NY' },
 ]
 
 const statContainer = {
@@ -101,25 +99,17 @@ export default function Hero({ reducedMotion }) {
           variants={reducedMotion ? undefined : statContainer}
           initial={reducedMotion ? false : 'hidden'}
           animate={reducedMotion ? { opacity: 1 } : 'show'}
-          className="mx-auto mt-14 max-w-xl space-y-3 text-left sm:text-center"
+          className="mx-auto mt-14 w-full max-w-xl space-y-3 text-left"
         >
           {stats.map((s) => (
             <motion.li
-              key={s.sub ? `${s.text}-${s.sub}` : s.text}
+              key={s.text}
               variants={reducedMotion ? undefined : statItem}
               initial={reducedMotion ? false : undefined}
-              className={`flex gap-2 font-sans text-sm font-medium text-navy dark:text-gold sm:text-base sm:justify-center ${
-                s.sub ? 'items-start' : 'items-center'
-              }`}
+              className="flex w-full items-center gap-2 font-sans text-sm font-medium text-navy dark:text-gold sm:text-base"
             >
-              <span
-                className={`h-1.5 w-1.5 shrink-0 rounded-full bg-gold ${s.sub ? 'mt-2' : ''}`}
-                aria-hidden
-              />
-              <span className={s.sub ? 'flex min-w-0 flex-col gap-0.5 text-left' : 'text-left'}>
-                <span>{s.text}</span>
-                {s.sub ? <span>{s.sub}</span> : null}
-              </span>
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden />
+              <span>{s.text}</span>
             </motion.li>
           ))}
         </motion.ul>
