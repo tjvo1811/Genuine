@@ -27,8 +27,7 @@ export default function ReconnectionSection({ reducedMotion }) {
           Recollection Gallery
         </h2>
         <p className="mt-4 text-base leading-relaxed text-charcoal/90 dark:text-cream/85">
-          A couple of years after NMUN-NY 2024 I was in Japan and happened to meet up with Kokona again. It felt less like
-          a coincidence and more like the conference actually mattered past the week.
+          A couple of years after NMUN-NY 2024 I was just in Japan and met Kokona again.
         </p>
 
         <InlinePhoto

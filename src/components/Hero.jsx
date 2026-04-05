@@ -3,7 +3,10 @@ import { motion } from 'framer-motion'
 const stats = [
   { text: '4,500+ Delegates from around the world' },
   { text: '57% International participants (107 countries)' },
-  { text: '1 Award: Best in Committee, UNESCO' },
+  {
+    text: '2 awards: Best in Committee, UNESCO',
+    sub: 'Outstanding Delegation',
+  },
 ]
 
 const statContainer = {
@@ -102,13 +105,21 @@ export default function Hero({ reducedMotion }) {
         >
           {stats.map((s) => (
             <motion.li
-              key={s.text}
+              key={s.sub ? `${s.text}-${s.sub}` : s.text}
               variants={reducedMotion ? undefined : statItem}
               initial={reducedMotion ? false : undefined}
-              className="font-sans text-sm font-medium text-navy dark:text-gold sm:text-base"
+              className={`flex gap-2 font-sans text-sm font-medium text-navy dark:text-gold sm:text-base sm:justify-center ${
+                s.sub ? 'items-start' : 'items-center'
+              }`}
             >
-              <span className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-gold align-middle sm:mr-2" />
-              <span className="sm:ml-0">{s.text}</span>
+              <span
+                className={`h-1.5 w-1.5 shrink-0 rounded-full bg-gold ${s.sub ? 'mt-2' : ''}`}
+                aria-hidden
+              />
+              <span className={s.sub ? 'flex min-w-0 flex-col gap-0.5 text-left' : 'text-left'}>
+                <span>{s.text}</span>
+                {s.sub ? <span>{s.sub}</span> : null}
+              </span>
             </motion.li>
           ))}
         </motion.ul>

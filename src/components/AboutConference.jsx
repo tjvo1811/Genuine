@@ -14,7 +14,7 @@ const facts = [
   ['Delegation', 'Survival International (NGO)'],
   ['Partner', 'Gwendolyn Crain'],
   ['Committee size', '~90-110 delegates'],
-  ['Result', 'Best in Committee'],
+  ['Result', 'Best in Committee, UNESCO; Outstanding Delegation'],
 ]
 
 export default function AboutConference({ reducedMotion }) {

@@ -112,16 +112,19 @@ export default function Footer() {
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               className="overflow-hidden text-left"
             >
-              <ol className="mt-8 list-decimal space-y-3 pl-5 text-xs leading-relaxed text-charcoal/80 dark:text-cream/75 sm:text-sm">
+              <ol className="mt-8 list-none space-y-3 pl-0 text-xs leading-relaxed text-charcoal/80 dark:text-cream/75 sm:text-sm">
                 {references.map((r, i) => (
-                  <li key={i}>
-                    {r.href ? (
-                      <a href={r.href} className="text-navy hover:underline dark:text-gold" target="_blank" rel="noreferrer">
-                        {r.text}
-                      </a>
-                    ) : (
-                      r.text
-                    )}
+                  <li key={i} className="grid grid-cols-[minmax(1.75rem,auto)_1fr] gap-x-3 sm:grid-cols-[minmax(2rem,auto)_1fr]">
+                    <span className="pt-0.5 text-right tabular-nums text-charcoal/70 dark:text-cream/65">{i + 1}.</span>
+                    <span className="min-w-0">
+                      {r.href ? (
+                        <a href={r.href} className="text-navy hover:underline dark:text-gold" target="_blank" rel="noreferrer">
+                          {r.text}
+                        </a>
+                      ) : (
+                        r.text
+                      )}
+                    </span>
                   </li>
                 ))}
               </ol>
